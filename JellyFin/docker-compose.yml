@@ -9,5 +9,5 @@ services:
       - /mnt/sda1/Config:/config
       - /mnt/sda1/Cache:/cache
       - /mnt/sda1/Movies:/media:ro
-      - /mnt/sda1/'TV Shows':/media2:ro
+      - /mnt/sda1/TV Shows:/media2:ro
     restart: 'unless-stopped'
