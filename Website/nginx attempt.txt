@@ -1,3 +1,5 @@
+events { }
+
 server {
   listen 80;
   server_name sgshami.com.com www.sgshami.com;
@@ -5,10 +7,9 @@ server {
 } 
 
 server {
-  listen 443;
+  listen 443 ssl;
+  ssl_certificate /ssl/sgshami_com.crt;;
+  ssl_certificate_key /ssl/sgshami_com.key;
+  root /var/www/html;
   server_name sgshami.com www.sgshami.com;
-  ssl on;
-  ssl_certificate /etc/ssl/ssl-bundle.crt;
-  ssl_certificate_key /etc/ssl/sgshami_com.key;
-  ssl_prefer_server_ciphers on;
 }
