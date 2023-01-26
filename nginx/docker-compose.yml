@@ -1,7 +1,7 @@
-version: '3'
+version: '3.8'
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.23.3
     container_name: nginx
     restart: unless-stopped
     ports:
@@ -9,6 +9,7 @@ services:
       - 443:443
     volumes:
       - /home/sgshami/nginx/homepage:/var/www/html
+      - /home/sgshami/nginx/sub:/var/www/sub
       - /home/sgshami/nginx/config:/etc/nginx/conf.d
       - /home/sgshami/nginx/ssl:/etc/ssl
     healthcheck:
