@@ -8,10 +8,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/sgshami/nginx/homepage:/var/www/html
-      - /home/sgshami/nginx/sub:/var/www/sub
-      - /home/sgshami/nginx/config:/etc/nginx/conf.d
-      - /home/sgshami/nginx/ssl:/etc/ssl
+      - ./homepage:/var/www/html
+      - ./sub:/var/www/sub
+      - ./config:/etc/nginx/conf.d
+      - /home/sgshami/ssl:/etc/ssl
     healthcheck:
       test: curl --fail http://localhost || exit 1
       interval: 60s
