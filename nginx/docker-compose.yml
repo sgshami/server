@@ -26,11 +26,6 @@ services:
     image: nginxdemos/hello
     networks:
       - reverse-proxy
-  web2:
-    container_name: tester2
-    image: nginxdemos/hello
-    networks:
-      - reverse-proxy
 
 networks:
   reverse-proxy:
