@@ -21,8 +21,13 @@ services:
       retries: 5
       start_period: 20s
       timeout: 10s
-  web:
-    container_name: tester
+  web1:
+    container_name: tester1
+    image: nginxdemos/hello
+    networks:
+      - reverse-proxy
+  web2:
+    container_name: tester2
     image: nginxdemos/hello
     networks:
       - reverse-proxy
