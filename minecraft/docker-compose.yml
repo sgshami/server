@@ -7,7 +7,7 @@ services:
     networks:
       - minecraft-server
     environment:
-      - EULA="TRUE"
+      - EULA: "TRUE"
     tty: true
     stdin_open: true
     restart: unless-stopped
