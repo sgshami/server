@@ -6,6 +6,8 @@ services:
     container_name: mc-java
     networks:
       - minecraft-server
+    ports:
+      - 25565:25565
     environment:
       EULA: "TRUE"
     tty: true
@@ -19,6 +21,8 @@ services:
     container_name: mc-bedrock
     networks:
       - minecraft-server
+    ports:
+      - 19132:19132/udp
     environment:
       EULA: "TRUE"
     volumes:
@@ -46,19 +50,6 @@ services:
     restart: unless-stopped
     depends_on:
       - mc
-
-  router:
-    image: itzg/mc-router
-    container_name: mc-router
-    networks:
-      - minecraft-server
-    ports:
-      - 25565:25565
-      - 19132:19132/udp
-    command: --mapping=mc=mc.sgshami.com=mc:25565,mcb.sgshami.com=mc-bedrock:19132
-    depends_on:
-      - mc
-      - mc-bedrock
 
 volumes:
   mc-java:
