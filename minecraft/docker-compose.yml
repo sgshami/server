@@ -25,6 +25,7 @@ services:
       - mc-bedrock:/data
     stdin_open: true
     tty: true
+    restart: unless-stopped
 
   backups:
     image: itzg/mc-backup
@@ -42,6 +43,7 @@ services:
       - mc-java:/data:ro
       - ./mc-backups:/backups
       - ./post-backup.sh:/post-backup.sh:ro
+    restart: unless-stopped
 
   router:
     image: itzg/mc-router
@@ -52,6 +54,7 @@ services:
       - 25565:25565
       - 19132:19132/udp
     command: --mapping=mc=mc.sgshami.com=mc:25565,mcb.sgshami.com=mc-bedrock:19132
+    restart: unless-stopped
 
 volumes:
   mc-java:
