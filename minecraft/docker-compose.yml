@@ -39,7 +39,7 @@ services:
         echo "Also before backup from $$RCON_HOST to $$DEST_DIR"
       POST_BACKUP_SCRIPT_FILE: /post-backup.sh
     volumes:
-      - data:/data:ro
+      - mc-java:/data:ro
       - ./mc-backups:/backups
       - ./post-backup.sh:/post-backup.sh:ro
 
