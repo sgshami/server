@@ -43,16 +43,6 @@ services:
       - ./mc-backups:/backups
       - ./post-backup.sh:/post-backup.sh:ro
 
-  healthcheck:
-    test: mc-health
-    container_name: minecraft-java-healthcheck
-    networks:
-      - minecraft-server
-    interval: 360s
-    #retries: 5
-    start_period: 20s
-    timeout: 10s
-
   router:
     image: itzg/mc-router
     container_name: minecraft-router
