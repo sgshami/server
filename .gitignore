@@ -1,4 +1,4 @@
 *.key
 *.pem
-ddclient/
+ddclient.conf
 ssl/

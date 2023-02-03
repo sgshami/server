@@ -31,13 +31,14 @@ services:
     tty: true
     restart: unless-stopped
 
+  #Make sure to delete backups or automate it. 
   backups:
     image: itzg/mc-backup
     container_name: mc-java-backup
     networks:
       - minecraft-server
     environment:
-      BACKUP_INTERVAL: "2h"
+      BACKUP_INTERVAL: "24h"
       RCON_HOST: mc
       PRE_BACKUP_SCRIPT: |
         echo "Before backup!"
