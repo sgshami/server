@@ -8,5 +8,5 @@ services:
       - PGID=1000
       - TZ=America/Los_Angeles
     volumes:
-      - /home/sgshami/ddclient/ddclient:/config
+      - /home/sgshami/server/ddclient/ddclient-config:/config
     restart: unless-stopped
