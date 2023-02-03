@@ -31,19 +31,16 @@ services:
     tty: true
     restart: unless-stopped
 
-  #Make sure to delete backups or automate it. 
   backups:
     image: itzg/mc-backup
     container_name: mc-java-backup
     networks:
       - minecraft-server
     environment:
-      BACKUP_INTERVAL: "24h"
+      BACKUP_INTERVAL: "2h"
       RCON_HOST: mc
-      PRE_BACKUP_SCRIPT: |
-        echo "Before backup!"
-        echo "Also before backup from $$RCON_HOST to $$DEST_DIR"
-      POST_BACKUP_SCRIPT_FILE: /post-backup.sh
+      INITIAL_DELAY: "2m"
+      PRUNE_BACKUPS_DAYS: "1"
     volumes:
       - mc-java:/data:ro
       - ./mc-backups:/backups
@@ -54,10 +51,10 @@ services:
 
 volumes:
   mc-java:
-    external: true
+    external: false
   mc-bedrock:
-    external: true
+    external: false #You can also not include this since it is false
 
 networks:
   minecraft-server:
-    external: true
+    driver: bridge
