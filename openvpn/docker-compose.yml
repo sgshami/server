@@ -5,6 +5,8 @@ services:
      - NET_ADMIN
     image: kylemanna/openvpn
     container_name: openvpn
+    networks:
+      - reverse-proxy
     ports:
      - "1194:1194/udp"
     restart: unless-stopped
