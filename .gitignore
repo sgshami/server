@@ -3,3 +3,4 @@
 .env
 ddclient.conf
 ssl/
+openvpn/openvpn-data
