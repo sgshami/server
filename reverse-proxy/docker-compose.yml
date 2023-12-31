@@ -12,7 +12,7 @@ services:
       - ./homepage:/var/www/html
       - ./sub:/var/www/sub
       - ./config:/etc/nginx/conf.d
-      - /home/sgshami/ssl:/etc/ssl
+      - /mnt/drive1/reverse-proxy/sgshami:/etc/ssl
     networks:
       - reverse-proxy
     healthcheck:
