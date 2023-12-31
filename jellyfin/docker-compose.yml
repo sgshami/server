@@ -9,15 +9,15 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - /mnt/sda1/Movies:/media1:ro
-      - /mnt/sda1/TV Shows:/media2:ro
-      - /mnt/sda1/Config:/config
-      - /mnt/sda1/Cache:/cache
+      - /mnt/nas/Movies:/media1:ro
+      - /mnt/nas/TV Shows:/media2:ro
+      - /mnt/drive1/jellyfin/Config:/config
+      - /mnt/drive1/jellyfin/Cache:/cache
     devices:
       - /dev/dri/card0:/dev/dri/card0
       - /dev/dri/renderD128:/dev/dri/renderD128
     restart: 'unless-stopped'
 
-networks:
-  reverse-proxy:
-    external: true
+# networks:
+#   reverse-proxy:
+#     external: true
