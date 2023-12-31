@@ -32,7 +32,8 @@ services:
       - PGID=1000
       - TZ=America/Los_Angeles
     volumes:
-      - /mnt/drive1/ddclient/:/config
+      # - /mnt/drive1/ddclient/:/config
+      - /mnt/drive1/ddclient:/etc/ddclient/ddclient.conf
     restart: unless-stopped
 
 networks:
