@@ -24,18 +24,6 @@ services:
     depends_on:
       - ddclient
 
-  ddclient:
-    image: lscr.io/linuxserver/ddclient:latest
-    container_name: ddclient
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Los_Angeles
-    volumes:
-      # - /mnt/drive1/ddclient/:/config
-      - /mnt/drive1/ddclient:/etc/ddclient
-    restart: unless-stopped
-
 networks:
   reverse-proxy:
     external: true
