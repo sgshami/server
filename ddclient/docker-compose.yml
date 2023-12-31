@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   ddclient:
     image: lscr.io/linuxserver/ddclient:latest
@@ -8,5 +8,5 @@ services:
       - PGID=1000
       - TZ=America/Los_Angeles
     volumes:
-      - /home/sgshami/server/ddclient/ddclient-config:/config
+      - /mnt/drive1/ddclient/ddclient.conf:/config
     restart: unless-stopped
