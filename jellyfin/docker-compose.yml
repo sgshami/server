@@ -9,8 +9,8 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - /mnt/nas/Movies:/media1:ro
-      - /mnt/nas/TV Shows:/media2:ro
+      - /mnt/nfs/Movies:/media1:ro
+      - /mnt/nfs/TV Shows:/media2:ro
       - /mnt/drive1/jellyfin/Config:/config
       - /mnt/drive1/jellyfin/Cache:/cache
     devices:
