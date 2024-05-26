@@ -1,9 +1,17 @@
 services:
   portainer:
     image: portainer/portainer-ce:latest
+    container_name: portainer
     ports:
       - 9443:9443
     volumes:
       - ~/admin/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    restart: unless-stopped
+    environment:
+      - API_KEY=${CLOUDFLARE_API}
+      - ZONE=sgshami.com
