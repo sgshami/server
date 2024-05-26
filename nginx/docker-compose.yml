@@ -1,9 +1,11 @@
 services:
   nginx:
-    image: lscr.io/linuxserver/nginx:latest
+    image: nginx:1.25.5
     container_name: nginx
-    environment:
-      - TZ=Etc/UTC
+    volumes:
+      - ./homepage:/var/www/html
+      - ./config:/etc/nginx/conf.d
+      - ~/ssl:/etc/ssl
     ports:
       - 80:80
       - 443:443
