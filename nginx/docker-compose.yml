@@ -1,0 +1,10 @@
+services:
+  nginx:
+    image: lscr.io/linuxserver/nginx:latest
+    container_name: nginx
+    environment:
+      - TZ=Etc/UTC
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
