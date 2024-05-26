@@ -6,15 +6,15 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=US/Mountain
-    volumes:
-      - ./homepage:/var/www/html
-      - ./config:/etc/nginx/conf.d
-      - ~/environment/ssl:/etc/ssl
-    networks:
-      - reverse-proxy
     ports:
       - 80:80
       - 443:443
+    networks:
+      - reverse-proxy
+    volumes:
+      - ./homepage:/var/www/html
+      - ./config:/etc/nginx/conf.d
+      - ~/ssl:/etc/ssl
     restart: unless-stopped
     healthcheck:
       test: curl --fail http://localhost || exit 1
