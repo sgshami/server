@@ -10,9 +10,9 @@ services:
     networks:
       - reverse-proxy
     volumes:
-      - './homepage:/var/www/html'
-      - './templates:/etc/nginx/templates'
-      - '~/ssl:/etc/ssl:ro'
+      - ./homepage:/var/www/html
+      - ./templates:/etc/nginx/templates
+      - ~/ssl:/etc/ssl:ro
     # environment:
     #   - MAIN_HOST=sgshami.com www.sgshami.com default_server
     healthcheck:
