@@ -11,8 +11,8 @@ services:
     networks:
       - reverse-proxy
     volumes:
-      - ./homepage:/var/www/html
-      - ./templates:/etc/nginx/conf.d
+      - /homepage:/var/www/html
+      - /config:/etc/nginx/conf.d
       - ../../ssl:/etc/ssl:ro
     healthcheck:
       test: curl --fail http://localhost || exit 1
