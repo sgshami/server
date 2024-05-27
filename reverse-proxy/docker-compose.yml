@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:1.26.0
+    image: nginx:latest
     container_name: nginx
     restart: unless-stopped
     depends_on:
