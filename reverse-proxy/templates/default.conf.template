@@ -9,7 +9,7 @@ server {
     listen 443 ssl;
     server_name sgshami.com www.sgshami.com default_server;
     
-    ssl_certificate /etc/ssl/www.sgshami.com.pem;
+    ssl_certificate /etc/ssl/www.sgshami.com.crt;
     ssl_certificate_key /etc/ssl/www.sgshami.com.key;
     access_log /var/log/nginx/data-access.log combined;
 
