@@ -1,4 +1,3 @@
 #Environment files/secrets
-*.key
-*.pem
+ssl/
 *.env
