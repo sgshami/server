@@ -13,7 +13,7 @@ services:
     volumes:
       - ./homepage:/var/www/html
       - ./templates:/etc/nginx/templates
-      - ~/ssl:/home/ssl:ro
+      - ../../ssl:/etc/ssl:ro
     # environment:
     #   - MAIN_HOST=sgshami.com www.sgshami.com default_server
     healthcheck:
