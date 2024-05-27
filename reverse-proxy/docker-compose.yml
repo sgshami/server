@@ -12,7 +12,7 @@ services:
       - reverse-proxy
     volumes:
       - ./homepage:/var/www/html
-      - ./templates:/etc/nginx/templates
+      - ./templates:/etc/nginx/conf.d
       - ../../ssl:/etc/ssl:ro
     healthcheck:
       test: curl --fail http://localhost || exit 1
