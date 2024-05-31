@@ -1,18 +1,18 @@
 services:
-  nord:
-    image: ghcr.io/bubuntux/nordvpn
+  nordlynx:
+    image: ghcr.io/bubuntux/nordlynx
+    container_name: nordlynx
+    restart: unless-stopped
     cap_add:
-      - NET_ADMIN               # Required
-      - NET_RAW                 # Required
-    environment:                # Review https://github.com/bubuntux/nordvpn#environment-variables
-      - TOKEN   # Required
-      - CONNECT=United_States
-      - TECHNOLOGY=NordLynx
-      - NETWORK=10.0.0.0/24
-    ports: # List all ports that need to be accessed inside local network here.
-      - 8080:8080
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=1  # Recomended if using ipv4 only
+      - NET_ADMIN
+    environment:
+      - PRIVATE_KEY=${NORD_PRIVATE_KEY}
+      - NET_LOCAL=10.0.0.0/24
+      - TZ=America/Denver
+    ports:
+      - "8080:8080"
+    networks:
+      - vpn-network
 
 networks:
   vpn-network:
