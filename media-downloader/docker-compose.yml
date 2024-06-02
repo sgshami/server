@@ -27,7 +27,7 @@ services:
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     volumes:
-      - /mnt/nfs/media/config/:/config
+      - /mnt/nfs/media/config/qbittorrent:/config
       - /mnt/nfs/media/downloads:/downloads
     # ports:
       # - 8080:8080
