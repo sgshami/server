@@ -13,8 +13,6 @@ services:
       - 8080:8080
       - 6881:6881
       - 6881:6881/udp
-    networks:
-      - vpn-network
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
@@ -29,13 +27,9 @@ services:
     volumes:
       - /mnt/nfs/media/config/qbittorrent:/config
       - /mnt/nfs/media/downloads:/downloads
-    # ports:
-      # - 8080:8080
-      # - 6881:6881
-      # - 6881:6881/udp
+    network_mode: service:nordlynx
+    # ports: # These will not work. Ports should be declared via VPN.
+    #   - 8080:8080
+    #   - 6881:6881
+    #   - 6881:6881/udp
     restart: unless-stopped
-
-networks:
-  vpn-network:
-    name: vpn-network
-    driver: bridge
