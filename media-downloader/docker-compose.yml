@@ -10,7 +10,9 @@ services:
       - NET_LOCAL=10.0.0.0/24
       - TZ=America/Denver
     ports:
-      - "8080:8080"
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
     networks:
       - vpn-network
   qbittorrent:
@@ -28,9 +30,9 @@ services:
       - /mnt/nfs/media/config/:/config
       - /mnt/nfs/media/downloads:/downloads
     ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+      # - 8080:8080
+      # - 6881:6881
+      # - 6881:6881/udp
     restart: unless-stopped
 
 networks:
