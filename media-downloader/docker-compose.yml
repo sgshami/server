@@ -29,7 +29,7 @@ services:
     volumes:
       - /mnt/nfs/media/config/:/config
       - /mnt/nfs/media/downloads:/downloads
-    ports:
+    # ports:
       # - 8080:8080
       # - 6881:6881
       # - 6881:6881/udp
