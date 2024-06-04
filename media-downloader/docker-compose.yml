@@ -36,4 +36,6 @@ services:
     #   - 8080:8080
     #   - 6881:6881
     #   - 6881:6881/udp
+    security_opt:
+      - seccomp:unconfined
     restart: unless-stopped
