@@ -39,20 +39,20 @@ services:
     security_opt:
       - seccomp:unconfined
     restart: unless-stopped
-  radarr: # This just downloads movie info.
-    container_name: radarr
-    image: lscr.io/linuxserver/radarr:latest
-    restart: unless-stopped
-    ports:
-      - 7878:7878
-    environment:
-      - PUID=3000
-      - PGID=3000
-      - TZ=America/Denver
-    volumes:
-      - /mnt/nfs/media/config/radarr:/config
-      - /mnt/nfs/media/downloads:/downloads
-      - /mnt/nfs/media/movies:/movies
+  # radarr: # This just downloads movie info.
+  #   container_name: radarr
+  #   image: lscr.io/linuxserver/radarr:latest
+  #   restart: unless-stopped
+  #   ports:
+  #     - 7878:7878
+  #   environment:
+  #     - PUID=3000
+  #     - PGID=3000
+  #     - TZ=America/Denver
+  #   volumes:
+  #     - /mnt/nfs/media/config/radarr:/config
+  #     - /mnt/nfs/media/downloads:/downloads
+  #     - /mnt/nfs/media/movies:/movies
   # sonarr:
   #   container_name: sonarr
   #   image: ghcr.io/hotio/sonarr:latest
