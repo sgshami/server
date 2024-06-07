@@ -39,3 +39,69 @@ services:
     security_opt:
       - seccomp:unconfined
     restart: unless-stopped
+  radarr:
+    container_name: radarr
+    image: lscr.io/linuxserver/radarr:latest
+    depends_on:
+      - nordlynx
+    network_mode: service:nordlynx
+    restart: unless-stopped
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=3000
+      - PGID=3000
+      - TZ=America/Denver
+    volumes:
+      - /mnt/nfs/media/config/radarr:/config
+      - /mnt/nfs/media/downloads:/downloads
+      - /mnt/nfs/media/movies:/movies
+  # sonarr:
+  #   container_name: sonarr
+  #   image: ghcr.io/hotio/sonarr:latest
+  #   restart: unless-stopped
+  #   logging:
+  #     driver: json-file
+  #   ports:
+  #     - 8989:8989
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /docker/appdata/sonarr:/config
+  #     - /data:/data
+  # bazarr:
+  #   container_name: bazarr
+  #   image: ghcr.io/hotio/bazarr:latest
+  #   restart: unless-stopped
+  #   logging:
+  #     driver: json-file
+  #   ports:
+  #     - 6767:6767
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /docker/appdata/bazarr:/config
+  #     - /data/media:/data/media
+  # sabnzbd:
+  #   container_name: sabnzbd
+  #   image: ghcr.io/hotio/sabnzbd:latest
+  #   restart: unless-stopped
+  #   logging:
+  #     driver: json-file
+  #   ports:
+  #     - 8080:8080
+  #     - 9090:9090
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Amsterdam
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /docker/appdata/sabnzbd:/config
+  #     - /data/usenet:/data/usenet:rw
