@@ -17,7 +17,7 @@ services:
       - 33445:33445/udp # qBittorrent Download
       - 9696:9696 # Prowlarr
       - 8686:8686 # Lidarr
-      - 8787:8787 # Radarr
+      - 7878:7878 # Radarr
       - 8989:8989 # Sonarr
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1 # Recomended if using ipv4 only
