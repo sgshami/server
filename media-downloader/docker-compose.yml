@@ -65,7 +65,7 @@ services:
     volumes:
       - /mnt/nfs/media/config/sonarr:/config
       - /mnt/nfs/media/tv-shows:/tv
-      - /mnt/nfs/media/downloads/tv-shows:/downloads
+      - /mnt/nfs/media/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -81,7 +81,7 @@ services:
     volumes:
       - /mnt/nfs/media/config/radarr:/config
       - /mnt/nfs/media/movies:/movies
-      - /mnt/nfs/media/downloads/movies:/downloads
+      - /mnt/nfs/media/downloads/movies:/downloads/movies
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -97,7 +97,7 @@ services:
     volumes:
       - /mnt/nfs/media/config/lidarr:/config
       - /mnt/nfs/media/music:/music
-      - /mnt/nfs/media/downloads/music:/downloads
+      - /mnt/nfs/media/downloads/music:/downloads/music
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
