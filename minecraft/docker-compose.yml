@@ -1,0 +1,40 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: mc-java
+    networks:
+      - minecraft-server
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - mc-java:/data
+
+  mc-bedrock:
+    image: itzg/minecraft-bedrock-server
+    container_name: mc-bedrock
+    networks:
+      - minecraft-server
+    ports:
+      - 19132:19132/udp
+    environment:
+      EULA: "TRUE"
+    volumes:
+      - mc-bedrock:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  mc-java:
+    external: false
+  mc-bedrock:
+    external: false #You can also not include this since it is false
+
+networks:
+  minecraft-server:
+    driver: bridge
