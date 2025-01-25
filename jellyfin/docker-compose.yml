@@ -11,7 +11,7 @@ services:
       - /mnt/nfs/media/tv-shows:/data/tvshows
       - /mnt/nfs/media/movies:/data/movies
       - /dev/nvidia-caps:/dev/nvidia-caps
-      - dev/nvidia0:/dev/nvidia0
+      - /dev/nvidia0:/dev/nvidia0
       - /dev/nvidiactl:/dev/nvidiactl
       - /dev/nvidia-modeset:/dev/nvidia-modeset
       - /dev/nvidia-uvm:/dev/nvidia-uvm
