@@ -10,7 +10,8 @@ services:
       - /mnt/nfs/media/jellyfin:/config
       - /mnt/nfs/media/tv-shows:/data/tvshows
       - /mnt/nfs/media/movies:/data/movies
-    ports: 8096:8096
+    ports: 
+      - 8096:8096
     runtime: nvidia
     deploy:
       resources:
