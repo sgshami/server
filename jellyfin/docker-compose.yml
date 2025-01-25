@@ -10,20 +10,6 @@ services:
       - /mnt/nfs/media/jellyfin:/config
       - /mnt/nfs/media/tv-shows:/data/tvshows
       - /mnt/nfs/media/movies:/data/movies
-      - /dev/nvidia-caps:/dev/nvidia-caps
-      - /dev/nvidia0:/dev/nvidia0
-      - /dev/nvidiactl:/dev/nvidiactl
-      - /dev/nvidia-modeset:/dev/nvidia-modeset
-      - /dev/nvidia-uvm:/dev/nvidia-uvm
-      - /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools
-    ports: 
+    ports:
       - 8096:8096
-    runtime: nvidia
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
     restart: unless-stopped
