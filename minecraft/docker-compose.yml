@@ -12,26 +12,26 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - /mnt/nfs/media/config/minecraft:/data
+      - /mnt/nfs/media/minecraft:/data
 
-  mc-bedrock:
-    image: itzg/minecraft-bedrock-server
-    container_name: mc-bedrock
-    networks:
-      - minecraft-server
-    ports:
-      - 19132:19132/udp
-    environment:
-      EULA: "TRUE"
-    volumes:
-      - mc-bedrock:/data
-    stdin_open: true
-    tty: true
-    restart: unless-stopped
+  # mc-bedrock:
+  #   image: itzg/minecraft-bedrock-server
+  #   container_name: mc-bedrock
+  #   networks:
+  #     - minecraft-server
+  #   ports:
+  #     - 19132:19132/udp
+  #   environment:
+  #     EULA: "TRUE"
+  #   volumes:
+  #     - mc-bedrock:/data
+  #   stdin_open: true
+  #   tty: true
+  #   restart: unless-stopped
 
-volumes:
-  mc-bedrock:
-    external: false #You can also not include this since it is false
+# volumes:
+#   mc-bedrock:
+#     external: false #You can also not include this since it is false
 
 networks:
   minecraft-server:
