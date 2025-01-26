@@ -12,7 +12,7 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - mc-java:/data
+      - /mnt/nfs/media/config/minecraft:/data
 
   mc-bedrock:
     image: itzg/minecraft-bedrock-server
@@ -30,8 +30,6 @@ services:
     restart: unless-stopped
 
 volumes:
-  mc-java:
-    external: false
   mc-bedrock:
     external: false #You can also not include this since it is false
 
