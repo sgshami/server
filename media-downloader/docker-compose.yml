@@ -33,7 +33,7 @@ services:
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     volumes:
-      - /mnt/nfs/media/config/qbittorrent:/config
+      - /opt/config/qbittorrent:/config
       - /mnt/nfs/media/downloads:/downloads
     network_mode: service:nordlynx
     # ports: # These will not work. Ports should be declared via VPN.
@@ -49,7 +49,7 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /mnt/nfs/media/config/prowlarr:/config
+      - /opt/config/prowlarr:/config
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -63,7 +63,7 @@ services:
       - PGID=101
       - TZ=America/Denver
     volumes:
-      - /mnt/nfs/media/config/sonarr:/config
+      - /opt/config/sonarr:/config
       - /mnt/nfs/media/tv-shows:/tv
       - /mnt/nfs/media/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
@@ -79,7 +79,7 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /mnt/nfs/media/config/radarr:/config
+      - /opt/radarr:/config
       - /mnt/nfs/media/movies:/movies
       - /mnt/nfs/media/downloads/movies:/downloads/movies
     restart: unless-stopped
@@ -95,7 +95,7 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /mnt/nfs/media/config/lidarr:/config
+      - /opt/lidarr:/config
       - /mnt/nfs/media/music:/music
       - /mnt/nfs/media/downloads/music:/downloads/music
     restart: unless-stopped
