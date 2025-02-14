@@ -34,7 +34,7 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - /opt/config/qbittorrent:/config
-      - /mnt/media/downloads:/downloads
+      - /mnt/nfs/media/downloads:/downloads
     network_mode: service:nordlynx
     # ports: # These will not work. Ports should be declared via VPN.
     #   - 8080:8080

@@ -8,8 +8,8 @@ services:
       - TZ=US/Mountain
     volumes:
       - /opt/config/jellyfin:/config
-      - /mnt/media/tv-shows:/data/tvshows
-      - /mnt/media/movies:/data/movies
+      - /mnt/nfs/media/tv-shows:/data/tvshows
+      - /mnt/nfs/media/movies:/data/movies
     ports:
       - 8096:8096
     restart: unless-stopped
