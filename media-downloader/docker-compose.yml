@@ -42,7 +42,7 @@ services:
       - seccomp:unconfined
     restart: unless-stopped
   prowlarr:
-    image: linuxserver/prowlarr:develop
+    image: linuxserver/prowlarr:latest
     container_name: prowlarr
     environment:
       - PUID=3000
@@ -64,8 +64,8 @@ services:
       - TZ=America/Denver
     volumes:
       - /opt/config/sonarr:/config
-      - /mnt/media/tv-shows:/tv
-      - /mnt/media/downloads/tv-shows:/downloads/tv-shows
+      - /mnt/nfs/media/tv-shows:/tv
+      - /mnt/nfs/media/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -80,8 +80,8 @@ services:
       - TZ=America/Denver
     volumes:
       - /opt/radarr:/config
-      - /mnt/media/movies:/movies
-      - /mnt/media/downloads/movies:/downloads/movies
+      - /mnt/nfs/media/movies:/movies
+      - /mnt/nfs/media/downloads/movies:/downloads/movies
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -96,8 +96,8 @@ services:
       - TZ=America/Denver
     volumes:
       - /opt/lidarr:/config
-      - /mnt/media/music:/music
-      - /mnt/media/downloads/music:/downloads/music
+      - /mnt/nfs/media/music:/music
+      - /mnt/nfs/media/downloads/music:/downloads/music
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
