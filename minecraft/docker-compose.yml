@@ -4,6 +4,7 @@ services:
     container_name: mc-java
     networks:
       - minecraft-server
+      - reverse-proxy
     ports:
       - 25565:25565
     environment:
@@ -12,27 +13,26 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - /mnt/nfs/media/minecraft:/data
+      - /mnt/ssd/minecraft/java:/dataf
 
-  # mc-bedrock:
-  #   image: itzg/minecraft-bedrock-server
-  #   container_name: mc-bedrock
-  #   networks:
-  #     - minecraft-server
-  #   ports:
-  #     - 19132:19132/udp
-  #   environment:
-  #     EULA: "TRUE"
-  #   volumes:
-  #     - mc-bedrock:/data
-  #   stdin_open: true
-  #   tty: true
-  #   restart: unless-stopped
-
-# volumes:
-#   mc-bedrock:
-#     external: false #You can also not include this since it is false
+  mc-bedrock:
+    image: itzg/minecraft-bedrock-server
+    container_name: mc-bedrock
+    networks:
+      - minecraft-server
+      - reverse-proxy
+    ports:
+      - 19132:19132/udp
+    environment:
+      EULA: "TRUE"
+    volumes:
+      - /mnt/ssd/minecraft/bedrock:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
 
 networks:
   minecraft-server:
     driver: bridge
+  reverse-proxy:
+    external: true
