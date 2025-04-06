@@ -20,24 +20,7 @@ services:
       retries: 5
       start_period: 20s
       timeout: 10s
-  jellyfin:
-    image: lscr.io/linuxserver/jellyfin:10.10.5
-    container_name: jellyfin
-    environment:
-      - PUID=3000 # Set User to user with volume permission
-      - PGID=3000 # Set Group to group with volume permission
-      - TZ=US/Mountain
-    volumes:
-      - /mnt/nfs/media/config/jellyfin:/config
-      - /mnt/nfs/media/tv-shows:/data/tvshows
-      - /mnt/nfs/media/movies:/data/movies
-    ports:
-      - 8096:8096
-    networks:
-      - reverse-proxy
-    restart: unless-stopped
 
 networks:
   reverse-proxy:
-    name: reverse-proxy
-    driver: bridge
+    external: true
