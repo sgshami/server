@@ -34,7 +34,7 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - /opt/config/qbittorrent:/config
-      - /mnt/nfs/media/downloads:/downloads
+      - /mnt/ssd/downloads:/downloads
     network_mode: service:nordlynx
     # ports: # These will not work. Ports should be declared via VPN.
     #   - 8080:8080
@@ -65,7 +65,7 @@ services:
     volumes:
       - /opt/config/sonarr:/config
       - /mnt/nfs/media/tv-shows:/tv
-      - /mnt/nfs/media/downloads/tv-shows:/downloads/tv-shows
+      - /mnt/ssd/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -81,7 +81,7 @@ services:
     volumes:
       - /opt/radarr:/config
       - /mnt/nfs/media/movies:/movies
-      - /mnt/nfs/media/downloads/movies:/downloads/movies
+      - /mnt/ssd/downloads/movies:/downloads/movies
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -97,7 +97,7 @@ services:
     volumes:
       - /opt/lidarr:/config
       - /mnt/nfs/media/music:/music
-      - /mnt/nfs/media/downloads/music:/downloads/music
+      - /mnt/ssd/downloads/music:/downloads/music
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
