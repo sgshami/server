@@ -13,7 +13,7 @@ services:
     stdin_open: true
     restart: unless-stopped
     volumes:
-      - /mnt/ssd/minecraft/java:/dataf
+      - /mnt/ssd/minecraft/java:/data
 
   mc-bedrock:
     image: itzg/minecraft-bedrock-server
