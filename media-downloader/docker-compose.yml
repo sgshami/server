@@ -115,3 +115,6 @@ services:
     volumes:
       - /opt/jellyseerr:/app/config
     restart: unless-stopped
+    depends_on:
+      - radarr
+      - sonarr
