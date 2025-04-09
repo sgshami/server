@@ -103,3 +103,15 @@ services:
     depends_on:
       - prowlarr
       - qbittorrent
+
+  jellyseerr:
+    image: ghcr.io/fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/Denver
+    ports:
+      - 5055:5055
+    volumes:
+      - /opt/jellyseerr:/app/config
+    restart: unless-stopped
