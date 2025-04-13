@@ -104,17 +104,18 @@ services:
       - prowlarr
       - qbittorrent
 
-  jellyseerr:
-    image: ghcr.io/fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
-    environment:
-      - LOG_LEVEL=info
-      - TZ=America/Denver
-    ports:
-      - 5055:5055
-    volumes:
-      - /opt/jellyseerr:/app/config
-    restart: unless-stopped
-    depends_on:
-      - radarr
-      - sonarr
+# Removed. This can be added later. Possible issue with filling up space.
+  # jellyseerr:
+  #   image: ghcr.io/fallenbagel/jellyseerr:latest
+  #   container_name: jellyseerr
+  #   environment:
+  #     - LOG_LEVEL=info
+  #     - TZ=America/Denver
+  #   ports:
+  #     - 5055:5055
+  #   volumes:
+  #     - /opt/jellyseerr:/app/config
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - radarr
+  #     - sonarr
