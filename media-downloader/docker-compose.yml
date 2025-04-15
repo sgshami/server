@@ -33,8 +33,8 @@ services:
       - WEBUI_PORT=8080
       - TORRENTING_PORT=6881
     volumes:
-      - /opt/config/qbittorrent:/config
-      - /mnt/nfs/media/downloads:/downloads
+      - /opt/ssd/config/qbittorrent:/config
+      - /mnt/media/downloads:/downloads
     network_mode: service:nordlynx
     # ports: # These will not work. Ports should be declared via VPN.
     #   - 8080:8080
@@ -49,7 +49,7 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /opt/config/prowlarr:/config
+      - /opt/ssd/config/prowlarr:/config
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -63,9 +63,9 @@ services:
       - PGID=101
       - TZ=America/Denver
     volumes:
-      - /opt/config/sonarr:/config
-      - /mnt/nfs/media/tv-shows:/tv
-      - /mnt/nfs/media/downloads/tv-shows:/downloads/tv-shows
+      - /opt/ssd/config/sonarr:/config
+      - /mntmedia/tv-shows:/tv
+      - /mnt/media/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -79,9 +79,9 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /opt/radarr:/config
-      - /mnt/nfs/media/movies:/movies
-      - /mnt/nfs/media/downloads/movies:/downloads/movies
+      - /opt/ssd/config/radarr:/config
+      - /mnt/media/movies:/movies
+      - /mnt/media/downloads/movies:/downloads/movies
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -95,9 +95,9 @@ services:
       - PGID=3000
       - TZ=America/Denver
     volumes:
-      - /opt/lidarr:/config
-      - /mnt/nfs/media/music:/music
-      - /mnt/nfs/media/downloads/music:/downloads/music
+      - /opt/ssd/config/lidarr:/config
+      - /mnt/media/music:/music
+      - /mnt/media/downloads/music:/downloads/music
     restart: unless-stopped
     network_mode: service:nordlynx
     depends_on:
@@ -114,7 +114,7 @@ services:
   #   ports:
   #     - 5055:5055
   #   volumes:
-  #     - /opt/jellyseerr:/app/config
+  #     - /opt/ssd/config/jellyseerr:/app/config
   #   restart: unless-stopped
   #   depends_on:
   #     - radarr
