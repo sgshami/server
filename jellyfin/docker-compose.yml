@@ -7,9 +7,9 @@ services:
       - PGID=3000 # Set Group to group with volume permission
       - TZ=US/Mountain
     volumes:
-      - /mnt/ssd/jellyfin:/config
-      - /mnt/nfs/media/tv-shows:/data/tvshows
-      - /mnt/nfs/media/movies:/data/movies
+      - /opt/ssd/config/jellyfin:/config
+      - /mnt/media/tv-shows:/data/tvshows
+      - /mnt/media/movies:/data/movies
     ports:
       - 8096:8096
     restart: unless-stopped
