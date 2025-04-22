@@ -11,7 +11,7 @@ services:
       - PRIVATE_KEY=${NORD_PRIVATE_KEY}
       - NET_LOCAL=10.0.0.0/16,192.168.50.0/24
       - TZ=America/Denver
-    ports:
+    ports: # All ports need to be defined here. Ports defined in the other services will not work unless defined here.
       - 8080:8080 # qBittorrent GUI
       - 33445:33445 # qBittorrent Download
       - 33445:33445/udp # qBittorrent Download
@@ -19,6 +19,7 @@ services:
       - 8686:8686 # Lidarr
       - 7878:7878 # Radarr
       - 8989:8989 # Sonarr
+      - 5055:5055 # Jellyseerr
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1 # Recomended if using ipv4 only
   qbittorrent:
@@ -36,7 +37,6 @@ services:
       - /opt/ssd/config/qbittorrent:/config
       - /mnt/media/downloads:/downloads
     network_mode: service:nordlynx
-    # ports: # These will not work. Ports should be declared via VPN.
     #   - 8080:8080
     security_opt:
       - seccomp:unconfined
@@ -59,8 +59,8 @@ services:
     image: linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=1024
-      - PGID=101
+      - PUID=3000
+      - PGID=3000
       - TZ=America/Denver
     volumes:
       - /opt/ssd/config/sonarr:/config
@@ -103,19 +103,16 @@ services:
     depends_on:
       - prowlarr
       - qbittorrent
-
-# Removed. This can be added later. Possible issue with filling up space.
-  # jellyseerr:
-  #   image: ghcr.io/fallenbagel/jellyseerr:latest
-  #   container_name: jellyseerr
-  #   environment:
-  #     - LOG_LEVEL=info
-  #     - TZ=America/Denver
-  #   ports:
-  #     - 5055:5055
-  #   volumes:
-  #     - /opt/ssd/config/jellyseerr:/app/config
-  #   restart: unless-stopped
-  #   depends_on:
-  #     - radarr
-  #     - sonarr
+  jellyseerr:
+    image: ghcr.io/fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/Denver
+    volumes:
+      - /opt/ssd/config/jellyseerr:/app/config
+    restart: unless-stopped
+    network_mode: service:nordlynx
+    depends_on:
+      - radarr
+      - sonarr
