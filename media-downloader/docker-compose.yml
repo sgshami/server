@@ -64,7 +64,7 @@ services:
       - TZ=America/Denver
     volumes:
       - /opt/ssd/config/sonarr:/config
-      - /mntmedia/tv-shows:/tv
+      - /mnt/media/tv-shows:/tv
       - /mnt/media/downloads/tv-shows:/downloads/tv-shows
     restart: unless-stopped
     network_mode: service:nordlynx
