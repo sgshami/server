@@ -19,6 +19,7 @@ services:
       - 8686:8686 # Lidarr
       - 7878:7878 # Radarr
       - 8989:8989 # Sonarr
+      - 6767:6767 # Bazarr
       - 5055:5055 # Jellyseerr
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1 # Recomended if using ipv4 only
@@ -103,6 +104,20 @@ services:
     depends_on:
       - prowlarr
       - qbittorrent
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=3000
+      - PGID=3000
+      - TZ=America/Denver
+    volumes:
+      - /opt/ssd/config/bazarr:/config
+      - /mnt/media/movies:/movies #optional
+      - /mnt/media/tv-shows:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
   jellyseerr:
     image: ghcr.io/fallenbagel/jellyseerr:latest
     container_name: jellyseerr
