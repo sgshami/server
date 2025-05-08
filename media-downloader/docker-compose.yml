@@ -115,8 +115,10 @@ services:
       - /opt/ssd/config/bazarr:/config
       - /mnt/media/movies:/movies #optional
       - /mnt/media/tv-shows:/tv #optional
-    ports:
-      - 6767:6767
+    network_mode: service:nordlynx
+    depends_on:
+      - sonarr
+      - radarr
     restart: unless-stopped
   jellyseerr:
     image: ghcr.io/fallenbagel/jellyseerr:latest
