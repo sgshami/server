@@ -11,5 +11,5 @@ services:
       - /mnt/pictures-and-videos:/app/data/images:ro
       - /opt/ssd/config/pigallery/tmp:/app/data/tmp
     ports:
-      - 80:80
+      - 8000:80
     restart: always
