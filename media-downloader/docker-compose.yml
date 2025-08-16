@@ -88,22 +88,22 @@ services:
     depends_on:
       - prowlarr
       - qbittorrent
-  lidarr:
-    image: linuxserver/lidarr
-    container_name: lidarr
-    environment:
-      - PUID=3000
-      - PGID=3000
-      - TZ=America/Denver
-    volumes:
-      - /opt/ssd/config/lidarr:/config
-      - /mnt/media/music:/music
-      - /mnt/media/downloads/music:/downloads/music
-    restart: unless-stopped
-    network_mode: service:nordlynx
-    depends_on:
-      - prowlarr
-      - qbittorrent
+  # lidarr:
+  #   image: linuxserver/lidarr
+  #   container_name: lidarr
+  #   environment:
+  #     - PUID=3000
+  #     - PGID=3000
+  #     - TZ=America/Denver
+  #   volumes:
+  #     - /opt/ssd/config/lidarr:/config
+  #     - /mnt/media/music:/music
+  #     - /mnt/media/downloads/music:/downloads/music
+  #   restart: unless-stopped
+  #   network_mode: service:nordlynx
+  #   depends_on:
+  #     - prowlarr
+  #     - qbittorrent
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
