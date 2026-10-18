@@ -3,9 +3,9 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
     environment:
-      - PUID=3000 # Set User to user with volume permission
+      - PUID=3248 # Set User to user with volume permission
       - PGID=3000 # Set Group to group with volume permission
-      - TZ=US/Mountain
+      - TZ=US/Los_Angeles
     volumes:
       - /opt/ssd/config/jellyfin:/config
       - /mnt/media/tv-shows:/data/tvshows
